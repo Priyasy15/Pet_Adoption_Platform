@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-image: url('https://i.postimg.cc/vBqRDr80/bg-img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+            background-color: white; /* Adds contrast */
+            padding: 20px;
+            border-radius: 15px; /* Makes the form rounded */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+        }
+
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personal Information</h1>
+    <form id="personalInfoForm" action="experience_lifestyle.html">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        
+        <label for="contact">Contact Details:</label>
+        <input type="text" id="contact" name="contact" required>
+        
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+        
+        <label for="living">Living Situation:</label>
+        <select id="living" name="living" required>
+            <option value="">Select</option>
+            <option value="house">House</option>
+            <option value="apartment">Apartment</option>
+        </select>
+        
+        <label for="rented">Do you rent your home?</label>
+        <select id="rented" name="rented" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <label for="landlord">If renting, does the landlord allow pets?</label>
+        <select id="landlord" name="landlord" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <button type="submit">Next</button>        
+    </form>
+    <script>
+        let formData = {};
+        document.getElementById('personalInfoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            formData.personalInfo = {
+                fullname: document.getElementById('fullname').value,
+                age: document.getElementById('age').value,
+                contact: document.getElementById('contact').value,
+                address: document.getElementById('address').value,
+                living: document.getElementById('living').value,
+                rented: document.getElementById('rented').value,
+                landlord: document.getElementById('landlord').value
+            };
+            sessionStorage.setItem('formData', JSON.stringify(formData));
+            window.location.href = 'experience_lifestyle.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet’s Basic Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-image: url('https://i.postimg.cc/vBqRDr80/bg-img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pet’s Basic Information</h1>
+    <form action="health_medical.html">
+        <label for="name">Pet’s Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species" required>
+        
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" name="breed">
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" name="weight" required>
+        
+        <label for="spayed">Is the pet spayed/neutered?</label>
+        <select id="spayed" name="spayed">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <label for="microchipped">Is the pet microchipped?</label>
+        <select id="microchipped" name="microchipped">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <button type="submit">Next</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawDoptEase - Pet Adoption Platform</title>
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.hamburger-menu');
+            menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+        }
+    </script>
+    <style>
+        
+        :root {
+            --primary-color: rgb(69, 164, 1); /* Main theme color */
+            --secondary-color: #023b0b; /* Darker shade for contrast */
+            --accent-color: #45a401; /* Highlight color for buttons/links */
+            --text-light: #ffffff; /* Light color for text on dark backgrounds */
+            --shadow: 0 4px 6px rgba(0,0,0,0.1); /* Soft shadow for depth */
+        }
+
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base styling for body */
+        body {
+            font-family: 'Arial';
+            line-height: 1.6;
+        }
+
+        /* HEADER STYLING */
+        .header {
+            position: fixed; /* Keeps header at the top while scrolling */
+            top: 0;
+            width: 100%;
+            background: var(--text-light); /* White background for contrast */
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow); /* Adds subtle depth */
+            z-index: 1000; /* Ensures header stays above other content */
+        }
+
+        /* Menu icon for mobile responsiveness */
+        .hamburger {
+            font-size: 3rem;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+        .hamburger-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: 60px; /* Adjust position under the hamburger */
+        left: 10px;
+        background: var(--text-light);
+        width: 200px;
+        box-shadow: var(--shadow);
+        border-radius: 8px;
+        padding: 10px 0;
+        font-size: medium;
+        }
+
+        .hamburger-menu a {
+            display: block;
+            padding: 10px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .hamburger-menu a:hover {
+            background: var(--accent-color);
+            color: var(--text-light);
+        }
+        /* Brand styling */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* Space between icon & text */
+            color: var(--primary-color);
+            font-family: 'Franklin Gothic Medium'; /* Aesthetic font for logo */
+            font-size: 1.5rem;
+        }
+
+        /* Navigation links styling */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            margin-right: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        /* Change link color on hover */
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            margin-top: 100px; /* Prevents content from overlapping header */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%; /* Adds spacing */
+        }
+
+        /* Hero section text content */
+        .hero-content {
+            max-width: 600px;
+        }
+
+        /* Call-to-action buttons */
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 200%;
+            max-width: 500px;
+            border: solid rgb(186, 186, 186) 5px;
+        }
+
+        /* Hover effect for buttons */
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .adopt-btn {
+            background: var(--accent-color);
+            color: var(--text-light);
+        }
+
+        .rehome-btn {
+            background: var(--secondary-color);
+            color: var(--text-light);
+        }
+
+        /* Pet image styling */
+        .hero-image {
+            width: 80%;
+            max-width: 800px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            -webkit-mask-image: linear-gradient(to right, transparent, white 45%, white 60%, transparent);
+            mask-image: linear-gradient(to right, transparent, white 45%, white 60%, transparent);
+        }   
+
+
+        /* VALUES SECTION */
+        .values-section {
+            padding: 4rem 5%;
+            background: #f8f9fa; /* Light grey background for contrast */
+        }
+
+        /* Arranges value cards in a responsive grid */
+        .values-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .value-card {
+            background: var(--text-light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            
+        }
+        .value-card:hover{ transform: scale(1.05); }
+        .cta-section {
+        background-color: var(--secondary-color);
+        width: 100%;
+        padding: 4rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .register-btn {
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 1.2rem 3rem;
+            border-radius: 30px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        .register-btn:hover {
+            transform: translateY(-3px);
+            background-color: #3a8d01;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;
+            <div class="hamburger-menu" style="display: none; position: absolute; background: var(--text-light); top: 100%; left: 0; width: 200px; box-shadow: var(--shadow);">
+                <a href="Main.html" style="display: block; padding: 10px; color: var(--secondary-color); text-decoration: none;">Home</a>
+                <a href="med.html" style="display: block; padding: 10px; color: var(--secondary-color); text-decoration: none;">Find Pet</a>
+                <a href="pet_info.html" style="display: block; padding: 10px; color: var(--secondary-color); text-decoration: none;">List Pet</a>
+                <a href="personalinfo.html" style="display: block; padding: 10px; color: var(--secondary-color); text-decoration: none;">Login/Register</a>
+            </div>
+        </div>
+        
+        <div class="brand">
+            <span style="font-size: xxx-large;">&#x1F43E;</span>
+            <h1 style="color: black;">Pet</h1><h1>Connect</h1>
+        </div>
+        <nav class="nav-links">
+            <a href="Main.html">Home</a>
+            <a href="med.html">Find Pet</a>
+            <a href="pet_info.html">List Pet</a>
+            <a href="personalinfo.html">Login/Register</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Find Your Perfect Pet Companion</h2>
+            <p class="tagline">Connecting loving homes with pets in need</p>
+            <div class="cta-buttons">
+                <div class="cta-button adopt-btn" onclick="window.location.href='med.html';">&#127969; I want to adopt a pet
+                </div>
+                <div class="cta-button rehome-btn" onclick="window.location.href='pet_info.html';">
+                    &#127971; I want to find a home for my pet
+                </div>
+                
+            </div>
+        </div>
+        <img src="https://hips.hearstapps.com/wdy.h-cdn.co/assets/17/39/1600x1066/gallery-1506709524-cola-0247.jpg" 
+             alt="Happy dog" 
+             class="hero-image">
+    </section>
+
+    <!-- VALUES SECTION -->
+    <section class="values-section">
+        <h1 style="text-align: center;"><b>Our Goals and Values</b></h1>
+        <div class="values-container">
+            <div class="value-card">
+                <h3 style="text-align: center;">Pet Welfare First</h3>
+                <p>• Every pet deserves safety, love, and respect<br><br>• Ethical adoption practices<br><br>• people who are great candidates for adoption shouldn’t be put off by complicated processes or one-size-fits-all rules</p>
+            </div>
+            <div class="value-card">
+                <h3 style="text-align: center;">Adoption Advocacy</h3>
+                <p> This value sits at the heart of everything we do.<br><br>
+
+                    Adoption reduces the demand for puppy farming, industrial-scale breeding, illegal pet imports, and other forms of exploitation and abuse.
+                    </p><br>
+                <p>Supporters of #AdoptDontShop</p>
+            </div>
+            <div class="value-card">
+                <h3 style="text-align: center;">Responsible Rehoming</h3>
+                <p>We’re champions of rehoming. But not at any cost.<br><br>
+                    We believe in finding the right match between adopters and pets, not taking risks or rushing.<br><br>
+                    
+                    We always prioritize pet welfare. And we offer a safer, more ethical and professional alternative to online marketplaces like Preloved, Pets4Homes, Facebook, and Gumtree.</p>
+            </div>
+        </div>
+    </section>
+    <section class="cta-section">
+        <button class="register-btn">Register Now</button>
+        
+    </section>
+    <footer style="background: var(--secondary-color); color: var(--text-light); text-align: center; padding: 2rem 0;">
+        <p>&copy; 2025 PetConnect. All Rights Reserved.</p>
+        <p>Contact us: <a href="mailto:support@petconnect.com" style="color: var(--accent-color);">support@petconnect.com</a></p>
+        <div style="margin-top: 1rem;">
+            <a href="#" style="color: var(--text-light); margin: 0 1rem;">Facebook</a>
+            <a href="#" style="color: var(--text-light); margin: 0 1rem;">Instagram</a>
+            <a href="#" style="color: var(--text-light); margin: 0 1rem;">Twitter</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption Agreement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-image: url('https://i.postimg.cc/vBqRDr80/bg-img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+            background-color: white; /* Adds contrast */
+            padding: 20px;
+            border-radius: 15px; /* Makes the form rounded */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adoption Agreement</h1>
+    <form id="adoptionAgreementForm" action="thank_you.html">
+        <label for="home_visit">Are you open to a home visit or follow-up check-ins?</label>
+        <select id="home_visit" name="home_visit">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <label for="adoption_contract">Will you sign an adoption contract if required?</label>
+        <select id="adoption_contract" name="adoption_contract">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('adoptionAgreementForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const adoptionAgreement = {
+                home_visit: document.getElementById('home_visit').value,
+                adoption_contract: document.getElementById('adoption_contract').value
+            };
+            const formData = JSON.parse(sessionStorage.getItem('formData')) || {};
+            formData.adoptionAgreement = adoptionAgreement;
+            sessionStorage.setItem('formData', JSON.stringify(formData));
+            window.location.href = 'thank_you.html';
+        });
+    </script>
+</body>
+</html>

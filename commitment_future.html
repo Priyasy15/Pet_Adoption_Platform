@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commitment & Future Plans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-image: url('https://i.postimg.cc/vBqRDr80/bg-img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+            background-color: white; /* Adds contrast */
+            padding: 20px;
+            border-radius: 15px; /* Makes the form rounded */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Commitment & Future Plans</h1>
+    <form id="commitmentFutureForm" action="adoption_agreement.html">
+        <label for="long_term">Are you aware of the long-term responsibility?</label>
+        <select id="long_term" name="long_term">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <label for="move_travel">What would you do if you had to move or travel?</label>
+        <input type="text" id="move_travel" name="move_travel">
+        
+        <button type="submit">Next</button>
+    </form>
+    <script>
+        document.getElementById('commitmentFutureForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const commitmentFuture = {
+                long_term: document.getElementById('long_term').value,
+                move_travel: document.getElementById('move_travel').value
+            };
+            const formData = JSON.parse(sessionStorage.getItem('formData')) || {};
+            formData.commitmentFuture = commitmentFuture;
+            sessionStorage.setItem('formData', JSON.stringify(formData));
+            window.location.href = 'adoption_agreement.html';
+        });
+    </script>
+</body>
+</html>

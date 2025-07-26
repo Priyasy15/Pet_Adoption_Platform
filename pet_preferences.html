@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Preferences</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-image: url('https://i.postimg.cc/vBqRDr80/bg-img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+            background-color: white; /* Adds contrast */
+            padding: 20px;
+            border-radius: 15px; /* Makes the form rounded */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pet Preferences</h1>
+    <form id="petPreferencesForm" action="commitment_future.html">
+        <label for="pet_type">What kind of pet are you looking for? (Breed, age, size)</label>
+        <input type="text" id="pet_type" name="pet_type">
+        
+        <label for="reason">Any specific reason for wanting this pet?</label>
+        <input type="text" id="reason" name="reason">
+        
+        <button type="submit">Next</button>
+    </form>
+    <script>
+        document.getElementById('petPreferencesForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const petPreferences = {
+                pet_type: document.getElementById('pet_type').value,
+                reason: document.getElementById('reason').value
+            };
+            const formData = JSON.parse(sessionStorage.getItem('formData')) || {};
+            formData.petPreferences = petPreferences;
+            sessionStorage.setItem('formData', JSON.stringify(formData));
+            window.location.href = 'commitment_future.html';
+        });
+    </script>
+</body>
+</html>

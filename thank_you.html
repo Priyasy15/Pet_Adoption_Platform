@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('https://i.postimg.cc/vBqRDr80/bg-img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank You</h1>
+        <h2>Your Information</h2>
+        <p><strong>Full Name:</strong> <span id="fullname"></span></p>
+        <p><strong>Age:</strong> <span id="age"></span></p>
+        <p><strong>Contact Details:</strong> <span id="contact"></span></p>
+        <p><strong>Address:</strong> <span id="address"></span></p>
+        <p><strong>Living Situation:</strong> <span id="living"></span></p>
+        <p><strong>Rent or Own:</strong> <span id="rented"></span></p>
+        <p><strong>Landlord Approval:</strong> <span id="landlord"></span></p>
+        <p><strong>Previous Pets:</strong> <span id="previous_pets"></span></p>
+        <p><strong>Experience with Breed/Species:</strong> <span id="experience"></span></p>
+        <p><strong>Hours Alone Daily:</strong> <span id="alone_hours"></span></p>
+        <p><strong>Children or Other Pets:</strong> <span id="children_pets"></span></p>
+        <p><strong>Financial Preparedness:</strong> <span id="financial_prepared"></span></p>
+        <p><strong>Preferred Vet:</strong> <span id="preferred_vet"></span></p>
+        <p><strong>Yard Space:</strong> <span id="yard_space"></span></p>
+        <p><strong>Dangerous Objects/Plants:</strong> <span id="dangerous_objects"></span></p>
+        <p><strong>Pet Type Desired:</strong> <span id="pet_type"></span></p>
+        <p><strong>Reason for Adoption:</strong> <span id="reason"></span></p>
+        <p><strong>Long-Term Commitment:</strong> <span id="long_term"></span></p>
+        <p><strong>Move/Travel Plans:</strong> <span id="move_travel"></span></p>
+        <p><strong>Home Visit:</strong> <span id="home_visit"></span></p>
+        <p><strong>Adoption Contract:</strong> <span id="adoption_contract"></span></p>
+        <button onclick="window.location.href='personalinfo.html'">Start Over</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const formData = JSON.parse(sessionStorage.getItem('formData'));
+            if (formData) {
+                document.getElementById('fullname').textContent = formData.personalInfo.fullname;
+                document.getElementById('age').textContent = formData.personalInfo.age;
+                document.getElementById('contact').textContent = formData.personalInfo.contact;
+                document.getElementById('address').textContent = formData.personalInfo.address;
+                document.getElementById('living').textContent = formData.personalInfo.living;
+                document.getElementById('rented').textContent = formData.personalInfo.rented;
+                document.getElementById('landlord').textContent = formData.personalInfo.landlord;
+                document.getElementById('previous_pets').textContent = formData.experienceLifestyle.previous_pets;
+                document.getElementById('experience').textContent = formData.experienceLifestyle.experience;
+                document.getElementById('alone_hours').textContent = formData.experienceLifestyle.alone_hours;
+                document.getElementById('children_pets').textContent = formData.experienceLifestyle.children_pets;
+                document.getElementById('financial_prepared').textContent = formData.financialCommitment.financial_prepared;
+                document.getElementById('preferred_vet').textContent = formData.financialCommitment.preferred_vet;
+                document.getElementById('yard_space').textContent = formData.homeEnvironment.yard_space;
+                document.getElementById('dangerous_objects').textContent = formData.homeEnvironment.dangerous_objects;
+                document.getElementById('pet_type').textContent = formData.petPreferences.pet_type;
+                document.getElementById('reason').textContent = formData.petPreferences.reason;
+                document.getElementById('long_term').textContent = formData.commitmentFuture.long_term;
+                document.getElementById('move_travel').textContent = formData.commitmentFuture.move_travel;
+                document.getElementById('home_visit').textContent = formData.adoptionAgreement.home_visit;
+                document.getElementById('adoption_contract').textContent = formData.adoptionAgreement.adoption_contract;
+            } else {
+                console.error('No data found in sessionStorage');
+            }
+        };
+    </script>
+</body>
+</html>

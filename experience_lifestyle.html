@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience & Lifestyle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-image: url('https://i.postimg.cc/vBqRDr80/bg-img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+            background-color: white; /* Adds contrast */
+            padding: 20px;
+            border-radius: 15px; /* Makes the form rounded */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Experience & Lifestyle</h1>
+    <form id="experienceLifestyleForm" action="financial_commitment.html">
+        <label for="previous_pets">Have you had pets before? What kind?</label>
+        <input type="text" id="previous_pets" name="previous_pets" required>
+        
+        <label for="experience">Do you have experience with this breed/species?</label>
+        <select id="experience" name="experience">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <label for="alone_hours">How many hours will the pet be left alone daily?</label>
+        <input type="number" id="alone_hours" name="alone_hours" required>
+        
+        <label for="children_pets">Do you have children or other pets at home?</label>
+        <input type="text" id="children_pets" name="children_pets">
+        
+        <button type="submit">Next</button>
+    </form>
+    <script>
+        document.getElementById('experienceLifestyleForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const experienceLifestyle = {
+                previous_pets: document.getElementById('previous_pets').value,
+                experience: document.getElementById('experience').value,
+                alone_hours: document.getElementById('alone_hours').value,
+                children_pets: document.getElementById('children_pets').value
+            };
+            const formData = JSON.parse(sessionStorage.getItem('formData')) || {};
+            formData.experienceLifestyle = experienceLifestyle;
+            sessionStorage.setItem('formData', JSON.stringify(formData));
+            window.location.href = 'financial_commitment.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Environment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-image: url('https://i.postimg.cc/vBqRDr80/bg-img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+            background-color: white; /* Adds contrast */
+            padding: 20px;
+            border-radius: 15px; /* Makes the form rounded */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Home Environment</h1>
+    <form id="homeEnvironmentForm" action="pet_preferences.html">
+        <label for="yard_space">Is there a yard or enough space for the pet?</label>
+        <select id="yard_space" name="yard_space">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <label for="dangerous_objects">Any dangerous objects/plants in the home for the pet?</label>
+        <input type="text" id="dangerous_objects" name="dangerous_objects">
+        
+        <button type="submit">Next</button>
+    </form>
+    <script>
+        document.getElementById('homeEnvironmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const homeEnvironment = {
+                yard_space: document.getElementById('yard_space').value,
+                dangerous_objects: document.getElementById('dangerous_objects').value
+            };
+            const formData = JSON.parse(sessionStorage.getItem('formData')) || {};
+            formData.homeEnvironment = homeEnvironment;
+            sessionStorage.setItem('formData', JSON.stringify(formData));
+            window.location.href = 'pet_preferences.html'; // Ensure this matches the form action
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavior & Temperament</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-image: url('https://i.postimg.cc/vBqRDr80/bg-img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Behavior & Temperament</h1>
+    <form action="diet_routine.html">
+        <label for="friendly">Is the pet friendly with children, other pets, or strangers?</label>
+        <input type="text" id="friendly" name="friendly">
+        
+        <label for="issues">Any behavioral issues (e.g., aggression, anxiety)?</label>
+        <input type="text" id="issues" name="issues">
+        
+        <label for="house_trained">Is the pet house-trained or litter-box trained?</label>
+        <select id="house_trained" name="house_trained">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <button type="submit">Next</button>
+    </form>
+</body>
+</html>
